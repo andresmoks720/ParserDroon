@@ -1,0 +1,200 @@
+[
+    {
+        "id": 96,
+        "serialNumber": "1581F67QC235T014Q1BG",
+        "identifier": "Mavic 3 Pro",
+        "notes": "Korduvad kõrguspiirangu rikkumised",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 1
+    },
+    {
+        "id": 97,
+        "serialNumber": "F6Z9C2527003BZ84",
+        "identifier": "Mini 4 Pro",
+        "notes": "JUB",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 113,
+        "serialNumber": "1581F67QE244J00A0079",
+        "identifier": "Lennujaama droon",
+        "notes": "",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 63,
+        "serialNumber": "1581F6N8C248J003CCUS",
+        "identifier": null,
+        "notes": null,
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 1
+    },
+    {
+        "id": 65,
+        "serialNumber": "1581F5YHX253T002LMHB",
+        "identifier": null,
+        "notes": null,
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 1
+    },
+    {
+        "id": 166,
+        "serialNumber": "1581F5BKX256R00F080Z",
+        "identifier": "Nii On",
+        "notes": "",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 147,
+        "serialNumber": "1581F6Z9C2527003BZ84",
+        "identifier": "Mini 4 Pro",
+        "notes": "JUB",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 148,
+        "serialNumber": "08QCEB70229PNU",
+        "identifier": "Mavi Pro",
+        "notes": "JUB",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 151,
+        "serialNumber": "1581F5FJC254G00DSQG4",
+        "identifier": "Mavic M3T",
+        "notes": "JUB",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 154,
+        "serialNumber": "1581F5FJC254G00DJUNJ",
+        "identifier": "Mavic M3T",
+        "notes": "JUB",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 155,
+        "serialNumber": "1581F5FJC254G00D9MN3",
+        "identifier": "Mavic M3T",
+        "notes": "JUB",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 156,
+        "serialNumber": "1581F5FJ724CR00AZ0CV",
+        "identifier": "Mavic 3T",
+        "notes": "JUB",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 159,
+        "serialNumber": "1581F8LQC254Q0021SPC",
+        "identifier": "...",
+        "notes": "Teaduspargist Mustamäel korduvalt keelualas ja korduvalt lubatust kõrgemal",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 1
+    },
+    {
+        "id": 167,
+        "serialNumber": "1581F5BKX256R00F07VH",
+        "identifier": "On Jah",
+        "notes": "",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 168,
+        "serialNumber": "1581F5FKD237300D783J",
+        "identifier": "SKA",
+        "notes": "",
+        "expiryStart": 1760504311069,
+        "expiryEnd": 1792097940000,
+        "relationship": 2
+    },
+    {
+        "id": 169,
+        "serialNumber": "1581F7K3C251400C301D",
+        "identifier": "SKA",
+        "notes": "",
+        "expiryStart": 1760504433227,
+        "expiryEnd": 1792097940000,
+        "relationship": 2
+    },
+    {
+        "id": 175,
+        "serialNumber": "1581F6Z9C253L003CGJY",
+        "identifier": "JUB-D13.",
+        "notes": "",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 181,
+        "serialNumber": "1581F5BKX256P00F07QP",
+        "identifier": "Juv",
+        "notes": "",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 200,
+        "serialNumber": "1581F5FJC248500EGB4U",
+        "identifier": "POL",
+        "notes": "",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 203,
+        "serialNumber": "1581F5FJ3247900AU0N7",
+        "identifier": "PA",
+        "notes": "PÄÄSTE",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 218,
+        "serialNumber": "1581F67Q8255H004E0UX",
+        "identifier": "1581F67Q8255H004E0UX",
+        "notes": "",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 2
+    },
+    {
+        "id": 236,
+        "serialNumber": "1581F6W83247F002U10F",
+        "identifier": "Avata 2",
+        "notes": "Lennutaja oli Tartus Plasku katuse parklas halli värvi Skodaga reg.m 526RDT. Kõrguse piirangustest kinni ei pea",
+        "expiryStart": null,
+        "expiryEnd": null,
+        "relationship": 1
+    }
+]

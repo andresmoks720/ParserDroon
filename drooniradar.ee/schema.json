@@ -1,0 +1,294 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Unified Airspace Aggregation Schema",
+    "description": "Schema for the intermediate step between data parsing/aggregation and visualization. Represents a unified view of eAIP (static) and NOTAM (dynamic) airspace data.",
+    "type": "object",
+    "required": [
+        "type",
+        "features",
+        "generatedAt"
+    ],
+    "properties": {
+        "type": {
+            "type": "string",
+            "const": "FeatureCollection"
+        },
+        "generatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when this aggregation was generated"
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "eaipVersion": {
+                    "type": "string"
+                },
+                "notamFetchTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "activeCount": {
+                    "type": "integer"
+                }
+            }
+        },
+        "features": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/AirspaceFeature"
+            }
+        }
+    },
+    "definitions": {
+        "AirspaceFeature": {
+            "type": "object",
+            "required": [
+                "type",
+                "geometry",
+                "properties"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "const": "Feature"
+                },
+                "id": {
+                    "type": [
+                        "string",
+                        "integer"
+                    ]
+                },
+                "geometry": {
+                    "$ref": "#/definitions/Geometry"
+                },
+                "properties": {
+                    "$ref": "#/definitions/AirspaceProperties"
+                }
+            }
+        },
+        "Geometry": {
+            "type": "object",
+            "required": [
+                "type",
+                "coordinates"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Point",
+                        "Polygon",
+                        "MultiPolygon",
+                        "LineString"
+                    ]
+                },
+                "coordinates": {
+                    "type": "array"
+                }
+            }
+        },
+        "AirspaceProperties": {
+            "type": "object",
+            "required": [
+                "source",
+                "identifier",
+                "restriction",
+                "class"
+            ],
+            "properties": {
+                "source": {
+                    "type": "string",
+                    "enum": [
+                        "EAIP",
+                        "NOTAM",
+                        "UAS_ZONE"
+                    ],
+                    "description": "The origin system of this data"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Unique identifier (e.g. EER2, A1234/23)"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Human readable name of the zone or NOTAM area"
+                },
+                "class": {
+                    "type": "string",
+                    "enum": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "UNCLASSIFIED"
+                    ],
+                    "default": "UNCLASSIFIED"
+                },
+                "restriction": {
+                    "type": "string",
+                    "enum": [
+                        "PROHIBITED",
+                        "RESTRICTED",
+                        "DANGER",
+                        "REQ_AUTHORISATION",
+                        "TEMPORARY_RESERVED",
+                        "WARNING",
+                        "NO_RESTRICTION"
+                    ],
+                    "description": "The normalized restriction level for drone operations"
+                },
+                "upperLimit": {
+                    "type": "object",
+                    "$ref": "#/definitions/Altitude"
+                },
+                "radius": {
+                    "type": "number",
+                    "description": "Radius in meters if geometry is a Point. If null, geometry is a specific polygon or point location."
+                },
+                "relatedTo": {
+                    "type": "string",
+                    "description": "ID of another feature this feature modifies or activates (e.g. 'EED123')"
+                },
+                "relationType": {
+                    "type": "string",
+                    "enum": [
+                        "ACTIVATION",
+                        "MODIFICATION",
+                        "REPLACEMENT"
+                    ],
+                    "description": "How this feature relates to the 'relatedTo' feature. ACTIVATION = makes inactive zone active. MODIFICATION = overrides properties. REPLACEMENT = replaces geometry."
+                },
+                "lowerLimit": {
+                    "type": "object",
+                    "$ref": "#/definitions/Altitude"
+                },
+                "schedule": {
+                    "type": "object",
+                    "properties": {
+                        "activeFrom": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Broad start of the validity period"
+                        },
+                        "activeUntil": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Broad end of the validity period"
+                        },
+                        "isPermanent": {
+                            "type": "boolean"
+                        },
+                        "text": {
+                            "type": "string",
+                            "description": "Original text schedule description"
+                        },
+                        "activations": {
+                            "type": "array",
+                            "description": "List of specific computed windows where the area is active (e.g. for Sunrise-Sunset)",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "start",
+                                    "end"
+                                ],
+                                "properties": {
+                                    "start": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "end": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "ACTIVE",
+                                            "INACTIVE"
+                                        ],
+                                        "default": "ACTIVE"
+                                    },
+                                    "comment": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "content": {
+                    "type": "string",
+                    "description": "Full description or raw message text"
+                },
+                "extendedProperties": {
+                    "type": "object",
+                    "properties": {
+                        "localizedMessages": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "language": {
+                                        "type": "string"
+                                    },
+                                    "message": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "priority": {
+                    "type": "string",
+                    "enum": [
+                        "CRITICAL",
+                        "HIGH",
+                        "MEDIUM",
+                        "LOW",
+                        "INFO"
+                    ],
+                    "description": "Derived priority for UI display"
+                },
+                "contact": {
+                    "type": "string",
+                    "description": "Contact info/radio frequency"
+                }
+            }
+        },
+        "Altitude": {
+            "type": "object",
+            "required": [
+                "value",
+                "unit",
+                "referenceDatum"
+            ],
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "FT",
+                        "M",
+                        "FL"
+                    ]
+                },
+                "referenceDatum": {
+                    "type": "string",
+                    "enum": [
+                        "AMSL",
+                        "AGL",
+                        "SFC",
+                        "STD"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+[
+    {
+        "id": 7,
+        "name": "",
+        "template": "{{ if and .Drone.Make .Drone.Model -}}\nAlarm huvialas {{ .GeoFenceName }}:\n{{ .Drone.Make }} {{ .Drone.Model }}\n{{- else if .Drone.Make -}}\nAlarm huvialas {{ .GeoFenceName }} ({{ .Drone.Make }} droon)\n{{- else -}}\nAlarm huvialas {{ .GeoFenceName }}\n{{- end -}}\n\n{{- if .Drone.PilotCoordinates }}\n\nPiloodi asukoht:\nhttps://maps.google.com/?q={{ .Drone.PilotCoordinates.Lat }},{{ .Drone.PilotCoordinates.Lng }}\n{{- else }}\n\nPiloodi asukoht ei ole teada\n{{- end -}}",
+        "kind": "b",
+        "languageCode": "ET"
+    },
+    {
+        "id": 8,
+        "name": "",
+        "template": "{{ if and .Drone.Make .Drone.Model -}}\nAlarm vastutusalas {{ .GeoFenceName }}:\n{{ .Drone.Make }} {{ .Drone.Model }}\n{{- else if .Drone.Make -}}\nAlarm vastutusalas {{ .GeoFenceName }} ({{ .Drone.Make }} droon)\n{{- else -}}\nAlarm vastutusalas {{ .GeoFenceName }}\n{{- end -}}\n\n{{- if .Drone.PilotCoordinates }}\n\nPiloodi asukoht:\nhttps://maps.google.com/?q={{ .Drone.PilotCoordinates.Lat }},{{ .Drone.PilotCoordinates.Lng }}\n{{- else }}\n\nPiloodi asukoht ei ole teada\n{{- end -}}",
+        "kind": "f",
+        "languageCode": "ET"
+    },
+    {
+        "id": 9,
+        "name": "",
+        "template": "{{ if and .Drone.Make .Drone.Model -}}\nAlarm in buffer {{ .GeoFenceName }}:\n{{ .Drone.Make }} {{ .Drone.Model }}\n{{- else if .Drone.Make -}}\nAlarm in buffer {{ .GeoFenceName }} ({{ .Drone.Make }} drone)\n{{- else -}}\nAlarm in buffer {{ .GeoFenceName }}\n{{- end -}}\n\n{{- if .Drone.PilotCoordinates }}\n\nPilot location:\nhttps://maps.google.com/?q={{ .Drone.PilotCoordinates.Lat }},{{ .Drone.PilotCoordinates.Lng }}\n{{- else }}\n\nPilot location is unknown\n{{- end -}}",
+        "kind": "b",
+        "languageCode": "EN"
+    },
+    {
+        "id": 10,
+        "name": "",
+        "template": "{{ if and .Drone.Make .Drone.Model -}}\nAlarm in geofence {{ .GeoFenceName }}:\n{{ .Drone.Make }} {{ .Drone.Model }}\n{{- else if .Drone.Make -}}\nAlarm in geofence {{ .GeoFenceName }} ({{ .Drone.Make }} drone)\n{{- else -}}\nAlarm in geofence {{ .GeoFenceName }}\n{{- end -}}\n\n{{- if .Drone.PilotCoordinates }}\n\nPilot location:\nhttps://maps.google.com/?q={{ .Drone.PilotCoordinates.Lat }},{{ .Drone.PilotCoordinates.Lng }}\n{{- else }}\n\nPilot location is unknown\n{{- end -}}",
+        "kind": "f",
+        "languageCode": "EN"
+    }
+]
