@@ -38,6 +38,7 @@ Define the **observable behavior** of the borders lookup used to gate place/regi
 2. Each ring MUST contain **at least 4 positions**, and the first and last position MUST be identical (closed ring).
 3. Each position MUST be an array of two finite numbers `[lng, lat]`.
 4. If any polygon fails validation when evaluated for a request, the request MUST yield **no response**.
+5. For MultiPolygon, each polygon entry MUST be non-empty; an empty polygon (no rings) is invalid and MUST yield **no response**.
 
 ### Holes and multipolygons
 1. The **first ring** of a polygon is the outer boundary; subsequent rings are holes.
@@ -133,6 +134,7 @@ The fixture contains labeled features and targeted edge cases. Each feature incl
 | T16 | `POINT_FEATURE` / `LINE_FEATURE` | near geometry only | `{ result: null }` (ignored) |
 | T17 | load failure | any point | `{ result: null }` |
 | T18 | invalid input | missing/NaN/Infinity/string coords | **No response emitted** |
+| T19 | `MULTI_EMPTY` | inside bbox | **No response emitted** |
 
 ---
 
